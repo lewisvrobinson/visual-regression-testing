@@ -1,0 +1,10 @@
+{
+  "reference": {
+    "url": "https://www.seek.com.au/",
+    "path": "./"
+  },
+  "test": {
+    "url": "https://www.seek.co.nz/",
+    "path": "./"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "puppeteer-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "get-screenshots": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "looks-same": "^3.2.1",
+    "puppeteer": "^0.12.0"
+  }
+}
