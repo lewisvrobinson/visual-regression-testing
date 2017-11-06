@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "get-screenshots": "node index.js"
+    "comapair-pages": "node scripts/compairPages.js"
   },
-  "author": "",
+  "author": "Lewis Robinson",
   "license": "ISC",
   "dependencies": {
     "looks-same": "^3.2.1",

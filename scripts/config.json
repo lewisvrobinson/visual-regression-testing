@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "testDirectory": null,
+    "highlightColor": "#ff00ff",
+    "strict": false,
+    "tolerance": 2.5
+  },
+  "reference": {
+    "url": "https://www.seek.com.au/",
+    "filename": "ref"
+  },
+  "test": {
+    "url": "https://www.seek.co.nz/",
+    "filename": "test"
+  }
+}
