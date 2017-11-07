@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "comapair-pages": "node scripts/compairPages.js"
+    "comapair-pages": "node ../scripts/compairPages.js"
   },
   "author": "Lewis Robinson",
   "license": "ISC",
