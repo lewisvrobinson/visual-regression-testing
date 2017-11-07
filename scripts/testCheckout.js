@@ -5,6 +5,8 @@
 const puppeteer = require('puppeteer');
 const config = require('./config.json');
 
+const product = {};
+
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
@@ -12,8 +14,8 @@ const config = require('./config.json');
   });
 
   const page = await browser.newPage();
-  await page.setViewport({width: 1600, height: 900});
-  await page.goto('https://www.stanley-pmi.com/shop',{ timeout: 0 });
+  await page.setViewport({ width: 1600, height: 900 });
+  await page.goto('https://www.stanley-pmi.com/shop', { timeout: 0 });
 
   // https://github.com/GoogleChrome/puppeteer/issues/1082
   const elementHandle = await page.$('body');
@@ -29,22 +31,25 @@ const config = require('./config.json');
     return box;
   };
 
-  await page.waitFor('.add-to-cart')
+  await page.waitFor('.add-to-cart', {timeout: 60000});
 
   // get `.product` container
   // get product name
   // get product price
 
   // try to add product to cart
-  const addToCartButton = await page.$('.add-to-cart')
-  await addToCartButton.click({delay: 100})
+  const addToCartButton = await page.$('.add-to-cart');
+  await addToCartButton.click({ delay: 100 });
 
   // wait for modal
-  await page.waitFor('.modal--addtocart')
+  await page.waitFor('.modal--addtocart', {visible: true});
 
   // proceed to checkout page
-  const goToCartButton = await page.$('a.submit__action[href="/index.php?action=prodcataloguecart"]')
-  goToCartButton.click()
+  const goToCartButton = await page.$(
+    'a.submit__action[href="/index.php?action=prodcataloguecart"]'
+  );
+  // goToCartButton.click();
+  console.log(goToCartButton)
 
   // check product in cart matches product clicked
 
@@ -54,3 +59,16 @@ const config = require('./config.json');
 
   await browser.close();
 })();
+
+// function getProductDetails() {
+// 	var detailContainer = prodWrap.querySelector('.product-info')
+// 	var productName = detailContainer.querySelector('.product-url h3').innerHTML
+// 	var productPrice = detailContainer.querySelector('.product-price .prod-current-price').innerHTML
+// 	var productVariant = detailContainer.querySelector('.variant-select .active').dataset.option
+	
+// 	return {
+// 		"name": productName,
+// 		"price": productPrice,
+// 		"varient": productVariant
+// 	}
+// }
